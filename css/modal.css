@@ -1,42 +1,56 @@
 .modal {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  background-color: #00000045;
+  background-color: #00000089;
+  z-index: 9999;
 }
 .poke-container {
   background-color: #fff;
   width: 320px;
-  height: 550px;
+  height: fit-content;
   border-radius: 1rem;
-  box-shadow: 3px 3px 10px #0000001f;
+  box-shadow: 3px 3px 10px #0000003d;
 }
 .poke-info {
   padding: 1.5rem 1rem;
   color: #fff;
   border-radius: 1rem;
+  background-image: url("../imgs/pokeball.png");
+  background-position: 50% 80%;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  position: relative;
 }
 .poke-opcoes {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
-.poke-opcoes span {
-  font-size: 20px;
+
+.poke-opcoes .voltar {
   cursor: pointer;
 }
+
+.fav {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 25px;
+}
+.fav:hover {
+  box-shadow: 0px 1px 8px #fff;
+}
 .poke-info .poke-img {
-  width: 150px;
+  width: 120px;
   margin: 0 auto;
-  margin-top: 1rem;
+  padding-top: 1rem;
   position: relative;
-  bottom: -10px;
+  bottom: -5px;
   z-index: 99;
 }
 .poke-info .poke-img img {
@@ -47,21 +61,18 @@
   justify-content: space-between;
   align-items: center;
 }
-.poke-main {
-  text-align: center;
-}
+
 .poke-info .poke-nome {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
+  text-align: left;
 }
-.poke-tipos{
+.poke-tipos {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
-.poke-tipo {
-  padding: .3rem .6rem;
+.poke-tipos .tipo {
+  padding: 0.3rem 0.6rem;
   border-radius: 1rem;
   font-size: 0.8rem;
   filter: brightness(1.1);
@@ -69,7 +80,6 @@
 }
 .poke-menu {
   display: flex;
-  width: 100%;
   align-items: flex-start;
   justify-content: space-between;
   padding: 2rem 0 0.3rem 0;
@@ -86,31 +96,30 @@
   cursor: pointer;
   color: #0000008d;
   font-weight: 500;
-  position: relative;
   padding-bottom: 0.2rem;
 }
 .poke-menu li.ativo {
   color: #252525f0;
-  border-bottom: 1px solid #49D0B0;
+  border-bottom: 2px solid #6c79db;
+  transition: none;
 }
 
 .poke-desc {
   font-size: 0.85rem;
-  width: 100%;
   text-align: justify;
   padding: 0.8rem 0;
   color: #252525f0;
 }
 
-.lista-sobre {
-  font-size: 0.85rem;
-  position: relative;
+.lista {
+  display: flex;
+  justify-content: space-between;
   box-shadow: 1px 3px 8px #00000035;
   border-radius: 0.6rem;
   padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+}
+.lista-sobre {
+  font-size: 0.85rem;
 }
 .lista-sobre li {
   margin-top: 0.3rem;
@@ -125,46 +134,37 @@
 }
 
 .lista-estat {
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 1px 3px 8px #00000035;
-  border-radius: 0.6rem;
-  padding: 0.5rem;
   margin-top: 0.5rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #0000008d;
-  position: relative;
 }
-.li{
+
+.li {
   display: flex;
-  width: 100%;
   align-items: center;
-  justify-content: space-between;
   height: 18px;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   position: relative;
 }
-.li li:nth-child(2){
+.li li:nth-child(2) {
   display: flex;
   align-items: center;
   position: absolute;
-  right: 90px;
+  right: 100px;
 }
-.xp{
+.xp {
   color: #252525f0;
-  position: relative;
-  z-index: 9;
-  font-size: .7rem;
-  left: -20px;
-}
-.barra{
-  background-color: #49D0B0;
   position: absolute;
-  border-radius: .8rem;
+  font-size: 0.7rem;
+  left: -30px;
 }
-.barra::after{
-  content: '';
+.barra {
+  position: absolute;
+  border-radius: 0.8rem;
+}
+.barra::after {
+  content: "";
   background-color: #0000001f;
   width: 100px;
   height: 15px;
@@ -172,59 +172,24 @@
   border-radius: inherit;
 }
 
-#evolucao .pokes{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  box-shadow: 1px 3px 8px #00000035;
-  border-radius: 0.6rem;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  max-height: 180px;
-  overflow: auto;
-}
-#evolucao .poke{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-#evolucao .poke-img{
-  height: 60px;
-}
-#evolucao .poke-img img{
-  width: 50px;
-}
-#evolucao .poke-nome{
-  font-size: .8rem;
-  color: #252525f0;
-  margin-bottom: .1rem;
-}
-#evolucao .poke-nivel{
-  font-size: .8rem;
-  color: #0000008d;
-}
-.favorito{
-  color: #fe5353;
-}
-
-#evolucao, #estatisticas, #movimentos{
-  display: none;
-}
-
-#movimentos{
+#movimentos {
   overflow: auto;
   max-height: 190px;
 }
-#movimentos ul{
+#movimentos ul {
   margin: 0 auto;
-  width: 75%;
-  text-align: center;
-  padding-top: .2rem;
+  width: 80%;
+  text-align: left;
+  padding: 0.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-#movimentos ul li{
-  margin-top: .3rem;
-  font-size: .9rem;
+#movimentos ul li {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+}
+
+#estatisticas,
+#movimentos {
+  display: none;
 }
